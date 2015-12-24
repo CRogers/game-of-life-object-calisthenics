@@ -9,4 +9,11 @@ public class GameShould {
         Game game = new Game();
         assertThat(game.score(), is(0));
     }
+
+    @Test
+    public void have_a_score_of_1_after_rolling_a_1() {
+        Game game = new Game();
+        game.roll(1);
+        assertThat(game.score(), is(1));
+    }
 }
