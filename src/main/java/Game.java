@@ -1,14 +1,11 @@
 public class Game {
-    private boolean rolled = false;
+    private int score = 0;
 
     public void roll(int pins) {
-        rolled = true;
+        score = pins;
     }
 
     public int score() {
-        if (rolled) {
-            return 1;
-        }
-        return 0;
+        return score;
     }
 }

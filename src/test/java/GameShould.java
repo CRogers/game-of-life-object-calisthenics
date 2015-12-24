@@ -17,6 +17,12 @@ public class GameShould {
         scoreShouldBe(1);
     }
 
+    @Test
+    public void have_a_score_of_2_after_rolling_a_2() {
+        game.roll(2);
+        scoreShouldBe(2);
+    }
+
     private void scoreShouldBe(int score) {
         assertThat(game.score(), is(score));
     }
