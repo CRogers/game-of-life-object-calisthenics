@@ -23,6 +23,13 @@ public class GameShould {
         scoreShouldBe(2);
     }
 
+    @Test
+    public void have_a_score_of_3_after_rolling_a_1_then_a_2() {
+        game.roll(1);
+        game.roll(2);
+        scoreShouldBe(3);
+    }
+
     private void scoreShouldBe(int score) {
         assertThat(game.score(), is(score));
     }
