@@ -1,4 +1,4 @@
-public class NormalRoleFrame implements ImmutableFrame {
+public class NormalRoleFrame implements Frame {
     private final FrameCreator frameCreator;
     private final Score score;
 
@@ -8,7 +8,7 @@ public class NormalRoleFrame implements ImmutableFrame {
     }
 
     @Override
-    public ImmutableFrame roll(Score pins) {
+    public Frame roll(Score pins) {
         frameCreator.newFrame();
 
         Score newScore = score.add(pins);

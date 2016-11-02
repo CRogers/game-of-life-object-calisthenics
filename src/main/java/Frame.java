@@ -1,4 +1,4 @@
 public interface Frame {
-    void roll(Score pins);
+    Frame roll(Score pinsScored);
     Score score();
 }

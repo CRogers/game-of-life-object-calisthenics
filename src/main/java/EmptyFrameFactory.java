@@ -9,9 +9,9 @@ public class EmptyFrameFactory implements FrameFactory {
     @Override
     public Frame get() {
         if (framesLeft <= 0) {
-            return new MutableFrame(new ConstantFrame(Score.zero()));
+            return new ConstantFrame(Score.zero());
         }
 
-        return new MutableFrame(new EmptyFrame(frameCreator));
+        return new EmptyFrame(frameCreator);
     }
 }

@@ -1,4 +1,4 @@
-public class AddNextRollsFrame implements ImmutableFrame {
+public class AddNextRollsFrame implements Frame {
     private final RollsLeft rollsLeft;
     private final Score score;
 
@@ -7,14 +7,14 @@ public class AddNextRollsFrame implements ImmutableFrame {
         this.score = score;
     }
 
-    public static ImmutableFrame strike() {
+    public static Frame strike() {
         return new AddNextRollsFrame(
             RollsLeft.two(),
             Score.ten()
         );
     }
 
-    public static ImmutableFrame spare() {
+    public static Frame spare() {
         return new AddNextRollsFrame(
             RollsLeft.one(),
             Score.ten()
@@ -22,7 +22,7 @@ public class AddNextRollsFrame implements ImmutableFrame {
     }
 
     @Override
-    public ImmutableFrame roll(Score pins) {
+    public Frame roll(Score pins) {
         return new AddNextRollsFrame(
             rollsLeft.oneLess(),
             rollsLeft.addToScoreIfRollsLeft(score, pins)

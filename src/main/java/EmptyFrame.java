@@ -1,4 +1,4 @@
-public class EmptyFrame implements ImmutableFrame {
+public class EmptyFrame implements Frame {
     private final FrameCreator frameCreator;
 
     public EmptyFrame(FrameCreator frameCreator) {
@@ -6,7 +6,7 @@ public class EmptyFrame implements ImmutableFrame {
     }
 
     @Override
-    public ImmutableFrame roll(Score pins) {
+    public Frame roll(Score pins) {
         boolean isStrike = pins.equals(Score.ten());
         if (isStrike) {
             frameCreator.newFrame();
