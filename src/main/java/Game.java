@@ -1,19 +1,11 @@
 public class Game {
-    private int score = 0;
-    private boolean struck;
+    private Score score = Score.zero();
 
     public void roll(int pins) {
-        if (pins == 10) {
-            struck = true;
-        } else if (struck) {
-            score += pins;
-            struck = false;
-        }
-
-        score += pins;
+        score = score.add(Score.of(pins));
     }
 
-    public int score() {
+    public Score score() {
         return score;
     }
 }

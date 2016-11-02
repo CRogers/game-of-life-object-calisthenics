@@ -46,7 +46,7 @@ public class GameShould {
     @Test
     public void test_that_() {
         rolls.forEach(game::roll);
-        assertThat(game.score()).isEqualTo(finalScore);
+        assertThat(game.score()).isEqualTo(Score.of(finalScore));
     }
 
     private static List<Integer> rolls(Object... rolls) {
