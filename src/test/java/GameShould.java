@@ -38,6 +38,16 @@ public class GameShould {
         scoreShouldBe(14);
     }
 
+    @Test
+    public void have_a_score_of_15_after_scoring_1_for_the_first_frame_then_a_spare_then_a_2() {
+        game.roll(1);
+        game.roll(0);
+        game.roll(4);
+        game.roll(6);
+        game.roll(2);
+        scoreShouldBe(15);
+    }
+
     private void scoreShouldBe(int score) {
         assertThat(game.score(), is(score));
     }
