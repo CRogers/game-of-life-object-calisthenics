@@ -1,36 +1,33 @@
+import com.google.common.collect.Lists;
 import one.util.streamex.StreamEx;
-import org.immutables.value.Value;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
-@Value.Immutable
-public abstract class Frames {
-    @Value.Parameter protected abstract List<Frame> frames();
+public class Frames {
+    private List<Frame> frames = Lists.newArrayList();
 
-    public static Frames empty() {
-        return ImmutableFrames.builder()
-            .addFrames(new EmptyFrame())
-            .build();
+    private Frames() {
+        frames.add(new EmptyFrame(this::addEmptyFrame));
     }
 
-    public Frames roll(Score pinsScored) {
-        List<Frame> newFrames = frames().stream()
-            .map(frame -> frame.roll(pinsScored))
-            .collect(Collectors.toList());
+    public static Frames empty() {
+        return new Frames();
+    }
 
-        return ImmutableFrames.of(newFrames);
+    public void roll(Score pinsScored) {
+        frames = frames.stream()
+            .map(frame -> {
+                System.out.println(frame);return frame.roll(pinsScored); })
+            .collect(Collectors.toList());
     }
 
     public Score score() {
-        return StreamEx.of(frames())
+        return StreamEx.of(frames)
             .foldLeft(Score.zero(), (score, frame) -> score.add(frame.score()));
     }
 
-    public Frames addEmptyFrame() {
-        return ImmutableFrames.builder()
-            .from(this)
-            .addFrames(new EmptyFrame())
-            .build();
+    public void addEmptyFrame() {
+        frames.add(new EmptyFrame(this::addEmptyFrame));
     }
 }

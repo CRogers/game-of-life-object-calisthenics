@@ -15,9 +15,9 @@ public abstract class Score {
         return of(0);
     }
 
-    public Frame toFrame() {
+    public Frame toFrame(FrameCreator frameCreator) {
         if (score() == 10) {
-            return new StrikeFrame1();
+            return new StrikeFrame1(frameCreator);
         }
 
         return new SimpleFrame1(this);
