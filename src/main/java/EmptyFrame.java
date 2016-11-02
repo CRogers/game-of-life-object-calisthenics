@@ -7,7 +7,13 @@ public class EmptyFrame implements ImmutableFrame {
 
     @Override
     public ImmutableFrame roll(Score pins) {
-        return pins.toFrame(frameCreator);
+        boolean isStrike = pins.equals(Score.ten());
+        if (isStrike) {
+            frameCreator.newFrame();
+            return AddNextRollsFrame.strike();
+        }
+
+        return new NormalRoleFrame(frameCreator, pins);
     }
 
     @Override

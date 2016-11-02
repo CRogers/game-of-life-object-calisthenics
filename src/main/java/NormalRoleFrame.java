@@ -1,8 +1,8 @@
-public class SimpleFrame2 implements ImmutableFrame {
+public class NormalRoleFrame implements ImmutableFrame {
     private final FrameCreator frameCreator;
     private final Score score;
 
-    public SimpleFrame2(FrameCreator frameCreator, Score score) {
+    public NormalRoleFrame(FrameCreator frameCreator, Score score) {
         this.frameCreator = frameCreator;
         this.score = score;
     }
@@ -10,6 +10,12 @@ public class SimpleFrame2 implements ImmutableFrame {
     @Override
     public ImmutableFrame roll(Score pins) {
         frameCreator.newFrame();
+
+        Score newScore = score.add(pins);
+        if (newScore.equals(Score.ten())) {
+            return AddNextRollsFrame.spare();
+        }
+
         return new ConstantFrame(score.add(pins));
     }
 

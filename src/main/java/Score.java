@@ -15,15 +15,6 @@ public abstract class Score {
         return of(0);
     }
 
-    public ImmutableFrame toFrame(FrameCreator frameCreator) {
-        if (score() == 10) {
-            frameCreator.newFrame();
-            return StrikeFrame.strike();
-        }
-
-        return new SimpleFrame1(frameCreator, this);
-    }
-
     public static Score ten() {
         return of(10);
     }

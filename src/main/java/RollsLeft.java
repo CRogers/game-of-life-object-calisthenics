@@ -18,4 +18,8 @@ public abstract class RollsLeft {
         }
         return score;
     }
+
+    public static RollsLeft one() {
+        return ImmutableRollsLeft.of(1);
+    }
 }
