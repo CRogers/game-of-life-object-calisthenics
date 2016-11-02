@@ -6,7 +6,7 @@ public class ConstantFrame implements Frame {
     }
 
     @Override
-    public Frame nextRoll(Score pins) {
+    public Frame roll(Score pins) {
         return this;
     }
 

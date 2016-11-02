@@ -1,13 +1,13 @@
-public class SimpleFrame1 implements Frame {
+public class StrikeFrame3 implements Frame {
     private final Score score;
 
-    public SimpleFrame1(Score score) {
+    public StrikeFrame3(Score score) {
         this.score = score;
     }
 
     @Override
     public Frame roll(Score pins) {
-        return new ConstantFrame(score.add(pins));
+        return new ConstantFrame(score().add(pins));
     }
 
     @Override

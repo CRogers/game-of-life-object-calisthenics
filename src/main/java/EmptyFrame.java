@@ -1,7 +1,7 @@
 public class EmptyFrame implements Frame {
     @Override
-    public Frame nextRoll(Score pins) {
-        return new SimpleFrame1(pins);
+    public Frame roll(Score pins) {
+        return pins.toFrame();
     }
 
     @Override

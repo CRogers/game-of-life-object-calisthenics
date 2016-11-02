@@ -16,7 +16,7 @@ public abstract class Frames {
 
     public Frames roll(Score pinsScored) {
         List<Frame> newFrames = frames().stream()
-            .map(frame -> frame.nextRoll(pinsScored))
+            .map(frame -> frame.roll(pinsScored))
             .collect(Collectors.toList());
 
         return ImmutableFrames.of(newFrames);

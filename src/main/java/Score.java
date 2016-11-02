@@ -14,4 +14,16 @@ public abstract class Score {
     public static Score zero() {
         return of(0);
     }
+
+    public Frame toFrame() {
+        if (score() == 10) {
+            return new StrikeFrame1();
+        }
+
+        return new SimpleFrame1(this);
+    }
+
+    public static Score ten() {
+        return of(10);
+    }
 }
