@@ -1,13 +1,20 @@
 public class Game {
-    private Frame frame = new EmptyFrame();
+    private Frames frames = Frames.empty();
+    private int rolls = 0;
 
     public void roll(int pins) {
         Score pinsScore = Score.of(pins);
 
-        frame = frame.nextRoll(pinsScore);
+        frames = frames.roll(pinsScore);
+
+        rolls++;
+
+        if (rolls % 2 == 0) {
+            frames = frames.addEmptyFrame();
+        }
     }
 
     public Score score() {
-        return frame.score();
+        return frames.score();
     }
 }

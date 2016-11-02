@@ -11,6 +11,7 @@ apply plugin: 'idea'
 
 dependencies {
     compile 'com.google.guava:guava:20.0'
+    compile 'one.util:streamex:0.6.2'
 
     processor 'org.immutables:value:2.3.8'
 

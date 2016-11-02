@@ -7,7 +7,6 @@ public abstract class Score {
     public Score add(Score other) {
         return of(score() + other.score());
     }
-
     public static Score of(int score) {
         return ImmutableScore.of(score);
     }

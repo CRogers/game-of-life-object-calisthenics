@@ -27,6 +27,8 @@ public class GameShould {
             { rolls(), 0 },
             { rolls(1), 1 },
             { rolls(2, 5), 7 },
+            { rolls(2, 4, 7), 13 },
+            { rolls(2, 4, 7, 2), 15 },
             { rolls(STRIKE), 10 },
             { rolls(STRIKE, 1), 12 },
             { rolls(STRIKE, 1, 3), 18 },
