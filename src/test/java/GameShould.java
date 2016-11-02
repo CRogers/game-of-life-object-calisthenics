@@ -1,29 +1,42 @@
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
+
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+@RunWith(Parameterized.class)
 public class GameShould {
-    private Game game = new Game();
+    private final Game game = new Game();
 
-    @Test
-    public void start_off_with_a_score_of_0() {
-        scoreShouldBe(0);
+    private final List<Integer> rolls;
+    private final int finalScore;
+
+    @Parameterized.Parameters(name = "rolling {0} scores {1}")
+    public static Collection<Object[]> data() {
+        return Arrays.asList(new Object[][] {
+            { rolls(), 0 },
+            { rolls(1), 1 },
+            { rolls(2, 5), 7 },
+        });
+    }
+
+    public GameShould(List<Integer> rolls, int finalScore) {
+        this.rolls = rolls;
+        this.finalScore = finalScore;
     }
 
     @Test
-    public void have_a_score_of_1_after_rolling_a_1() {
-        game.roll(1);
-        scoreShouldBe(1);
+    public void test_that_() {
+        rolls.forEach(game::roll);
+        assertThat(game.score()).isEqualTo(finalScore);
     }
 
-    @Test
-    public void have_a_score_of_7_after_rolling_a_2_then_a_5() {
-        game.roll(2);
-        game.roll(5);
-        scoreShouldBe(7);
+    private static List<Integer> rolls(Integer... rolls) {
+        return Arrays.asList(rolls);
     }
 
-    private void scoreShouldBe(int score) {
-        assertThat(game.score()).isEqualTo(score);
-    }
 }
