@@ -17,7 +17,8 @@ public abstract class Score {
 
     public ImmutableFrame toFrame(FrameCreator frameCreator) {
         if (score() == 10) {
-            return new StrikeFrame1(frameCreator);
+            frameCreator.newFrame();
+            return StrikeFrame.strike();
         }
 
         return new SimpleFrame1(frameCreator, this);
