@@ -1,4 +1,4 @@
-public class ConstantFrame implements Frame {
+public class ConstantFrame implements ImmutableFrame {
     private final Score score;
 
     public ConstantFrame(Score score) {
@@ -6,7 +6,7 @@ public class ConstantFrame implements Frame {
     }
 
     @Override
-    public Frame roll(Score pins) {
+    public ImmutableFrame roll(Score pins) {
         return this;
     }
 

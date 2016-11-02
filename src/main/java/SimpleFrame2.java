@@ -1,4 +1,4 @@
-public class SimpleFrame2 implements Frame {
+public class SimpleFrame2 implements ImmutableFrame {
     private final FrameCreator frameCreator;
     private final Score score;
 
@@ -8,7 +8,7 @@ public class SimpleFrame2 implements Frame {
     }
 
     @Override
-    public Frame roll(Score pins) {
+    public ImmutableFrame roll(Score pins) {
         frameCreator.newFrame();
         return new ConstantFrame(score.add(pins));
     }

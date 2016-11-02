@@ -1,4 +1,4 @@
-public class StrikeFrame3 implements Frame {
+public class StrikeFrame3 implements ImmutableFrame {
     private final Score score;
 
     public StrikeFrame3(Score score) {
@@ -6,7 +6,7 @@ public class StrikeFrame3 implements Frame {
     }
 
     @Override
-    public Frame roll(Score pins) {
+    public ImmutableFrame roll(Score pins) {
         return new ConstantFrame(score().add(pins));
     }
 

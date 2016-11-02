@@ -1,4 +1,4 @@
-public class EmptyFrame implements Frame {
+public class EmptyFrame implements ImmutableFrame {
     private final FrameCreator frameCreator;
 
     public EmptyFrame(FrameCreator frameCreator) {
@@ -6,7 +6,7 @@ public class EmptyFrame implements Frame {
     }
 
     @Override
-    public Frame roll(Score pins) {
+    public ImmutableFrame roll(Score pins) {
         return pins.toFrame(frameCreator);
     }
 

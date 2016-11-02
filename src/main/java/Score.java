@@ -15,12 +15,12 @@ public abstract class Score {
         return of(0);
     }
 
-    public Frame toFrame(FrameCreator frameCreator) {
+    public ImmutableFrame toFrame(FrameCreator frameCreator) {
         if (score() == 10) {
             return new StrikeFrame1(frameCreator);
         }
 
-        return new SimpleFrame1(this);
+        return new SimpleFrame1(frameCreator, this);
     }
 
     public static Score ten() {

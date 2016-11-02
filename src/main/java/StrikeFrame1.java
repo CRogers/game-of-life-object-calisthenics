@@ -1,4 +1,4 @@
-public class StrikeFrame1 implements Frame {
+public class StrikeFrame1 implements ImmutableFrame {
     private final FrameCreator frameCreator;
 
     public StrikeFrame1(FrameCreator frameCreator) {
@@ -6,9 +6,10 @@ public class StrikeFrame1 implements Frame {
     }
 
     @Override
-    public Frame roll(Score pins) {
+    public ImmutableFrame roll(Score pins) {
         frameCreator.newFrame();
-        return new StrikeFrame2(Score.ten().add(pins));
+        return new StrikeFrame2(Score.ten()
+            .add(pins));
     }
 
     @Override
