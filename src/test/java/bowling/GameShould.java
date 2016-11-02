@@ -1,3 +1,7 @@
+package bowling;
+
+import bowling.Game;
+import bowling.Score;
 import com.google.common.collect.ImmutableList;
 import org.junit.Test;
 import org.junit.runner.RunWith;
