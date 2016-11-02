@@ -10,6 +10,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 @RunWith(Parameterized.class)
 public class GameShould {
+    private static final int STRIKE = 10;
+
     private final Game game = new Game();
 
     private final List<Integer> rolls;
@@ -21,6 +23,8 @@ public class GameShould {
             { rolls(), 0 },
             { rolls(1), 1 },
             { rolls(2, 5), 7 },
+            { rolls(STRIKE), 10 },
+            { rolls(STRIKE, 1), 12 },
         });
     }
 
