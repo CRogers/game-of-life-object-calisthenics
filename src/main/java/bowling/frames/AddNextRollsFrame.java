@@ -1,3 +1,8 @@
+package bowling.frames;
+
+import bowling.RollsLeft;
+import bowling.Score;
+
 public class AddNextRollsFrame implements Frame {
     private final RollsLeft rollsLeft;
     private final Score score;

@@ -1,3 +1,7 @@
+package bowling.frames;
+
+import bowling.Score;
+
 public class ConstantFrame implements Frame {
     private final Score score;
 

@@ -1,3 +1,7 @@
+package bowling;
+
+import bowling.frames.Frame;
+
 public class Game {
     private Frames frames = Frames.empty();
     private final FrameFactory frameFactory = new EmptyFrameFactory(this::addEmptyFrame);

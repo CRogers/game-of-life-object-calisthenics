@@ -1,8 +1,13 @@
-public class NormalRoleFrame implements Frame {
+package bowling.frames;
+
+import bowling.FrameCreator;
+import bowling.Score;
+
+public class NormalRollFrame implements Frame {
     private final FrameCreator frameCreator;
     private final Score score;
 
-    public NormalRoleFrame(FrameCreator frameCreator, Score score) {
+    public NormalRollFrame(FrameCreator frameCreator, Score score) {
         this.frameCreator = frameCreator;
         this.score = score;
     }

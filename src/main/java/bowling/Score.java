@@ -1,3 +1,5 @@
+package bowling;
+
 import org.immutables.value.Value;
 
 @Value.Immutable

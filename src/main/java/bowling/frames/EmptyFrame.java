@@ -1,3 +1,8 @@
+package bowling.frames;
+
+import bowling.FrameCreator;
+import bowling.Score;
+
 public class EmptyFrame implements Frame {
     private final FrameCreator frameCreator;
 
@@ -13,7 +18,7 @@ public class EmptyFrame implements Frame {
             return AddNextRollsFrame.strike();
         }
 
-        return new NormalRoleFrame(frameCreator, pins);
+        return new NormalRollFrame(frameCreator, pins);
     }
 
     @Override

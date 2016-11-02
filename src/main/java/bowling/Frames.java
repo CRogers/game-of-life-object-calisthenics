@@ -1,3 +1,6 @@
+package bowling;
+
+import bowling.frames.Frame;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
 import one.util.streamex.StreamEx;
@@ -29,6 +32,8 @@ public class Frames {
             newFrames.stream(),
             recentlyAddedFrames
         ).collect(toList());
+
+        System.out.println("hi");
     }
 
     public Score score() {

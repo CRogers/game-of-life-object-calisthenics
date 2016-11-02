@@ -1,3 +1,5 @@
+package bowling;
+
 import org.immutables.value.Value;
 
 @Value.Immutable
@@ -13,7 +15,7 @@ public abstract class RollsLeft {
     }
 
     public Score addToScoreIfRollsLeft(Score score, Score pins) {
-        if (rollsLeft() >= 0) {
+        if (rollsLeft() > 0) {
             return score.add(pins);
         }
         return score;
