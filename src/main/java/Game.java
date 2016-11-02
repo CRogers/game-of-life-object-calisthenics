@@ -1,11 +1,13 @@
 public class Game {
-    private Score score = Score.zero();
+    private Frame frame = new EmptyFrame();
 
     public void roll(int pins) {
-        score = score.add(Score.of(pins));
+        Score pinsScore = Score.of(pins);
+
+        frame = frame.nextRoll(pinsScore);
     }
 
     public Score score() {
-        return score;
+        return frame.score();
     }
 }
