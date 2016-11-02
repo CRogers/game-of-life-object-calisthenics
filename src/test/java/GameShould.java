@@ -10,6 +10,12 @@ public class GameShould {
         scoreShouldBe(0);
     }
 
+    @Test
+    public void have_a_score_of_1_after_rolling_a_1() {
+        game.roll(1);
+        scoreShouldBe(1);
+    }
+
     private void scoreShouldBe(int score) {
         assertThat(game.score()).isEqualTo(score);
     }
