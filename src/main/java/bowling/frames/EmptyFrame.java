@@ -14,12 +14,23 @@ public class EmptyFrame implements Frame {
     public Frame roll(Score pins) {
         boolean isStrike = pins.equals(Score.ten());
         if (isStrike) {
-            frameCreator.newFrame();
+            frameCreator.newEmptyFrame();
             return AddNextRollsFrame.strike();
         }
 
         return new NormalRollFrame(frameCreator, pins);
     }
+    // X.
+    // 1/
+    // 11
+
+    // XXX
+    // XX1
+    // X1/
+    // X11
+    // 111
+    // 1/X
+    // 1/1
 
     @Override
     public Score score() {

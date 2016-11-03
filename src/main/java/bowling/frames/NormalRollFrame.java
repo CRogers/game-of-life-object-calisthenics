@@ -14,7 +14,7 @@ public class NormalRollFrame implements Frame {
 
     @Override
     public Frame roll(Score pins) {
-        frameCreator.newFrame();
+        frameCreator.newEmptyFrame();
 
         Score newScore = score.add(pins);
         if (newScore.equals(Score.ten())) {

@@ -1,18 +1,11 @@
 package bowling;
 
-import bowling.frames.Frame;
-
 public class Game {
     private Frames frames = Frames.empty();
-    private final FrameFactory frameFactory = new EmptyFrameFactory(this::addEmptyFrame);
 
     public Game() {
-        addEmptyFrame();
-    }
-
-    private void addEmptyFrame() {
-        Frame newEmptyFrame = frameFactory.get();
-        frames.addFrame(newEmptyFrame);
+        FrameFactory frameFactory = new EmptyFrameFactory(frames::addFrame);
+        frames.addFrame(frameFactory.get());
     }
 
     public void roll(int pins) {

@@ -33,7 +33,7 @@ public class Frames {
             recentlyAddedFrames
         ).collect(toList());
 
-        System.out.println("hi");
+        int a = 1;
     }
 
     public Score score() {

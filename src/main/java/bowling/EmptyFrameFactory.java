@@ -6,18 +6,21 @@ import bowling.frames.Frame;
 
 public class EmptyFrameFactory implements FrameFactory {
     private int framesLeft = 10;
-    private final FrameCreator frameCreator;
+    private final FrameBlah frameBlah;
 
-    public EmptyFrameFactory(FrameCreator frameCreator) {
-        this.frameCreator = frameCreator;
+    public EmptyFrameFactory(FrameBlah frameBlah) {
+        this.frameBlah = frameBlah;
     }
 
     @Override
     public Frame get() {
-        if (framesLeft <= 0) {
+        if (framesLeft <= 1) {
             return new ConstantFrame(Score.zero());
+//            return new FinalEmptyFrame(frameBlah);
         }
 
-        return new EmptyFrame(frameCreator);
+        framesLeft--;
+
+        return new EmptyFrame(() -> frameBlah.newFrame(get()));
     }
 }
