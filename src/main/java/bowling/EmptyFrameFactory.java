@@ -5,7 +5,7 @@ import bowling.frames.FinalEmptyFrame;
 import bowling.frames.Frame;
 
 public class EmptyFrameFactory implements FrameFactory {
-    private int framesLeft = 10;
+    private FramesLeft framesLeft = FramesLeft.ten();
     private final FrameCreator frameCreator;
 
     public EmptyFrameFactory(FrameCreator frameCreator) {
@@ -14,11 +14,11 @@ public class EmptyFrameFactory implements FrameFactory {
 
     @Override
     public Frame get() {
-        if (framesLeft <= 1) {
+        if (framesLeft.equals(FramesLeft.one())) {
             return FinalEmptyFrame.finalEmptyFrame();
         }
 
-        framesLeft--;
+        framesLeft = framesLeft.oneLess();
 
         return new EmptyFrame(() -> frameCreator.newFrame(get()));
     }
