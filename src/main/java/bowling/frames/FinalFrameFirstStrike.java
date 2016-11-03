@@ -1,19 +1,19 @@
 package bowling.frames;
 
-import bowling.FrameBlah;
+import bowling.FrameCreator;
 import bowling.Score;
 
 public class FinalFrameFirstStrike implements Frame {
-    private final FrameBlah frameBlah;
+    private final FrameCreator frameCreator;
 
-    public FinalFrameFirstStrike(FrameBlah frameBlah) {
-        this.frameBlah = frameBlah;
+    public FinalFrameFirstStrike(FrameCreator frameCreator) {
+        this.frameCreator = frameCreator;
     }
 
     @Override
     public Frame roll(Score pinsScored) {
         if (pinsScored.equals(Score.ten())) {
-            frameBlah.newFrame(new FinalFrameSecondStrike());
+            frameCreator.newFrame(new FinalFrameSecondStrike());
             return AddNextRollsFrame.strike();
         }
         return new NormalRollFrame(() -> {}, pinsScored);

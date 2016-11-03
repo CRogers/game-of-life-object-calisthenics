@@ -1,5 +1,7 @@
 package bowling;
 
+import bowling.frames.Frame;
+
 public interface FrameCreator {
-    void newEmptyFrame();
+    void newFrame(Frame frame);
 }

@@ -1,24 +1,24 @@
 package bowling.frames;
 
-import bowling.FrameCreator;
+import bowling.EmptyFrameCreator;
 import bowling.Score;
 
 public class EmptyFrame implements Frame {
-    private final FrameCreator frameCreator;
+    private final EmptyFrameCreator emptyFrameCreator;
 
-    public EmptyFrame(FrameCreator frameCreator) {
-        this.frameCreator = frameCreator;
+    public EmptyFrame(EmptyFrameCreator emptyFrameCreator) {
+        this.emptyFrameCreator = emptyFrameCreator;
     }
 
     @Override
     public Frame roll(Score pins) {
         boolean isStrike = pins.equals(Score.ten());
         if (isStrike) {
-            frameCreator.newEmptyFrame();
+            emptyFrameCreator.newEmptyFrame();
             return AddNextRollsFrame.strike();
         }
 
-        return new NormalRollFrame(frameCreator, pins);
+        return new NormalRollFrame(emptyFrameCreator, pins);
     }
     // X.
     // 1/

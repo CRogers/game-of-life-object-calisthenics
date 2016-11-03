@@ -1,13 +1,13 @@
 package bowling.frames;
 
-import bowling.FrameBlah;
+import bowling.FrameCreator;
 import bowling.Score;
 
 public class FinalEmptyFrame implements Frame {
-    private final FrameBlah frameBlah;
+    private final FrameCreator frameCreator;
 
-    private FinalEmptyFrame(FrameBlah frameBlah) {
-        this.frameBlah = frameBlah;
+    private FinalEmptyFrame(FrameCreator frameCreator) {
+        this.frameCreator = frameCreator;
     }
 
     public static Frame finalEmptyFrame() {
@@ -19,10 +19,10 @@ public class FinalEmptyFrame implements Frame {
     @Override
     public Frame roll(Score pinsScored) {
         if (pinsScored.equals(Score.ten())) {
-            frameBlah.newFrame(new FinalFrameFirstStrike(frameBlah));
+            frameCreator.newFrame(new FinalFrameFirstStrike(frameCreator));
             return AddNextRollsFrame.strike();
         }
-        return new NormalRollFrame(() -> frameBlah.newFrame(AddNextRollsFrame.justNext()), pinsScored);
+        return new NormalRollFrame(() -> frameCreator.newFrame(AddNextRollsFrame.justNext()), pinsScored);
     }
 
     @Override

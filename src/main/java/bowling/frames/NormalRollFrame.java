@@ -1,20 +1,20 @@
 package bowling.frames;
 
-import bowling.FrameCreator;
+import bowling.EmptyFrameCreator;
 import bowling.Score;
 
 public class NormalRollFrame implements Frame {
-    private final FrameCreator frameCreator;
+    private final EmptyFrameCreator emptyFrameCreator;
     private final Score score;
 
-    public NormalRollFrame(FrameCreator frameCreator, Score score) {
-        this.frameCreator = frameCreator;
+    public NormalRollFrame(EmptyFrameCreator emptyFrameCreator, Score score) {
+        this.emptyFrameCreator = emptyFrameCreator;
         this.score = score;
     }
 
     @Override
     public Frame roll(Score pins) {
-        frameCreator.newEmptyFrame();
+        emptyFrameCreator.newEmptyFrame();
 
         Score newScore = score.add(pins);
         if (newScore.equals(Score.ten())) {
