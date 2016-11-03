@@ -13,7 +13,7 @@ public class FinalFrameFirstStrike implements Frame {
     @Override
     public Frame roll(Score pinsScored) {
         if (pinsScored.equals(Score.ten())) {
-            frameCreator.newFrame(new FinalFrameSecondStrike());
+            frameCreator.newFrame(AddNextRollsFrame.justNext());
             return AddNextRollsFrame.strike();
         }
         return new NormalRollFrame(() -> {}, pinsScored);
