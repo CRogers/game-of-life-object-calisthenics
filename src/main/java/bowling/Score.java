@@ -20,4 +20,8 @@ public abstract class Score {
     public static Score ten() {
         return of(10);
     }
+
+    public Score limitedBy(Score maxScore) {
+        return of(Math.min(score(), maxScore.score()));
+    }
 }

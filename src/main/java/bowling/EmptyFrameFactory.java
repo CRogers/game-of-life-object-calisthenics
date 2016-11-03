@@ -1,7 +1,7 @@
 package bowling;
 
-import bowling.frames.ConstantFrame;
 import bowling.frames.EmptyFrame;
+import bowling.frames.FinalEmptyFrame;
 import bowling.frames.Frame;
 
 public class EmptyFrameFactory implements FrameFactory {
@@ -15,8 +15,7 @@ public class EmptyFrameFactory implements FrameFactory {
     @Override
     public Frame get() {
         if (framesLeft <= 1) {
-            return new ConstantFrame(Score.zero());
-//            return new FinalEmptyFrame(frameBlah);
+            return FinalEmptyFrame.finalEmptyFrame();
         }
 
         framesLeft--;

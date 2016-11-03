@@ -26,6 +26,13 @@ public class AddNextRollsFrame implements Frame {
         );
     }
 
+    public static Frame justNext() {
+        return new AddNextRollsFrame(
+            RollsLeft.one(),
+            Score.zero()
+        );
+    }
+
     @Override
     public Frame roll(Score pins) {
         return new AddNextRollsFrame(

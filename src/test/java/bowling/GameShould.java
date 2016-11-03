@@ -38,7 +38,7 @@ public class GameShould {
             { rolls(SPARE, 2), 14 },
             { rolls(SPARE, 2, 3), 17 },
             { rolls(Stream.generate(() -> STRIKE).limit(12).collect(toList())), 300 },
-            { rolls(Stream.generate(() -> 0).limit(20).collect(toList()), STRIKE, 4), 18 },
+            { rolls(Stream.generate(() -> 0).limit(18).collect(toList()), STRIKE, 4), 18 },
 
         });
     }

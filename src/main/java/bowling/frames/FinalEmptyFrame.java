@@ -1,22 +1,28 @@
 package bowling.frames;
 
-import bowling.FrameCreator;
+import bowling.FrameBlah;
 import bowling.Score;
 
 public class FinalEmptyFrame implements Frame {
-    private final FrameCreator frameCreator;
+    private final FrameBlah frameBlah;
 
-    public FinalEmptyFrame(FrameCreator frameCreator) {
-        this.frameCreator = frameCreator;
+    private FinalEmptyFrame(FrameBlah frameBlah) {
+        this.frameBlah = frameBlah;
+    }
+
+    public static Frame finalEmptyFrame() {
+        MultiFrame finalFrames = new MultiFrame();
+        finalFrames.addFrame(new FinalEmptyFrame(finalFrames::addFrame));
+        return new MaxScoreFrame(Score.of(30), finalFrames);
     }
 
     @Override
     public Frame roll(Score pinsScored) {
         if (pinsScored.equals(Score.ten())) {
-            frameCreator.newEmptyFrame();
+            frameBlah.newFrame(new FinalFrameFirstStrike(frameBlah));
             return AddNextRollsFrame.strike();
         }
-        return new ConstantFrame(Score.zero());
+        return new NormalRollFrame(() -> frameBlah.newFrame(AddNextRollsFrame.justNext()), pinsScored);
     }
 
     @Override
