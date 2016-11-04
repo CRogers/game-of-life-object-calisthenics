@@ -1,6 +1,7 @@
 package bowling.frames;
 
 import bowling.Score;
+import bowling.Scorer;
 
 public class ConstantFrame implements Frame {
     private final Score score;
@@ -15,7 +16,7 @@ public class ConstantFrame implements Frame {
     }
 
     @Override
-    public Score score() {
-        return score;
+    public void score(Scorer scorer) {
+        scorer.score(score);
     }
 }

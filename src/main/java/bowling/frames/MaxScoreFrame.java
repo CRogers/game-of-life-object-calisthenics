@@ -1,6 +1,7 @@
 package bowling.frames;
 
 import bowling.Score;
+import bowling.Scorer;
 
 public class MaxScoreFrame implements Frame {
     private final Score maxScore;
@@ -17,7 +18,7 @@ public class MaxScoreFrame implements Frame {
     }
 
     @Override
-    public Score score() {
-        return frame.score().limitedBy(maxScore);
+    public void score(Scorer scorer) {
+        frame.score(score -> scorer.score(score.limitedBy(maxScore)));
     }
 }

@@ -3,7 +3,6 @@ package bowling;
 import bowling.frames.Frame;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
-import one.util.streamex.StreamEx;
 
 import java.util.List;
 import java.util.stream.Stream;
@@ -32,13 +31,12 @@ public class Frames {
             newFrames.stream(),
             recentlyAddedFrames
         ).collect(toList());
-
-        int a = 1;
     }
 
     public Score score() {
-        return StreamEx.of(frames)
-            .foldLeft(Score.zero(), (score, frame) -> score.add(frame.score()));
+        SummingScorer summingScorer = new SummingScorer();
+        frames.forEach(frame -> frame.score(summingScorer));
+        return summingScorer.totalScore();
     }
 
     public void addFrame(Frame frame) {

@@ -2,6 +2,7 @@ package bowling.frames;
 
 import bowling.RollsLeft;
 import bowling.Score;
+import bowling.Scorer;
 
 public class AddNextRollsFrame implements Frame {
     private final RollsLeft rollsLeft;
@@ -42,7 +43,7 @@ public class AddNextRollsFrame implements Frame {
     }
 
     @Override
-    public Score score() {
-        return score;
+    public void score(Scorer scorer) {
+        scorer.score(score);
     }
 }

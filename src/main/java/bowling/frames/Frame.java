@@ -1,8 +1,9 @@
 package bowling.frames;
 
 import bowling.Score;
+import bowling.Scorer;
 
 public interface Frame {
     Frame roll(Score pinsScored);
-    Score score();
+    void score(Scorer scorer);
 }

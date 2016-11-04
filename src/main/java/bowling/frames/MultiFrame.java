@@ -2,6 +2,7 @@ package bowling.frames;
 
 import bowling.Frames;
 import bowling.Score;
+import bowling.Scorer;
 
 public class MultiFrame implements Frame {
     private final Frames frames = Frames.empty();
@@ -17,7 +18,7 @@ public class MultiFrame implements Frame {
     }
 
     @Override
-    public Score score() {
-        return frames.score();
+    public void score(Scorer scorer) {
+        scorer.score(frames.score());
     }
 }

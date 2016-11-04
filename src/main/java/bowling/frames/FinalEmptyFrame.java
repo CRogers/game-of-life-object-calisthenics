@@ -2,6 +2,7 @@ package bowling.frames;
 
 import bowling.FrameCreator;
 import bowling.Score;
+import bowling.Scorer;
 
 public class FinalEmptyFrame implements Frame {
     private final FrameCreator frameCreator;
@@ -26,7 +27,7 @@ public class FinalEmptyFrame implements Frame {
     }
 
     @Override
-    public Score score() {
-        return Score.zero();
+    public void score(Scorer scorer) {
+        scorer.score(Score.zero());
     }
 }

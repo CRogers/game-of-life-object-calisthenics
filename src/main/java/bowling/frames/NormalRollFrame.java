@@ -2,6 +2,7 @@ package bowling.frames;
 
 import bowling.EmptyFrameCreator;
 import bowling.Score;
+import bowling.Scorer;
 
 public class NormalRollFrame implements Frame {
     private final EmptyFrameCreator emptyFrameCreator;
@@ -25,7 +26,7 @@ public class NormalRollFrame implements Frame {
     }
 
     @Override
-    public Score score() {
-        return score;
+    public void score(Scorer scorer) {
+        scorer.score(score);
     }
 }
