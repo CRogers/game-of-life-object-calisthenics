@@ -21,7 +21,7 @@ public class NormalRollFrame implements Frame {
             return AddNextRollsFrame.spare();
         }
 
-        return new ConstantFrame(score.add(pins));
+        return new ConstantFrame(newScore);
     }
 
     @Override

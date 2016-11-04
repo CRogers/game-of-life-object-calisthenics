@@ -18,8 +18,4 @@ public class ConstantFrame implements Frame {
     public Score score() {
         return score;
     }
-
-    public static Frame zeroFrame() {
-        return new ConstantFrame(Score.zero());
-    }
 }
